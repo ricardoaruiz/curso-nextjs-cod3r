@@ -1,0 +1,20 @@
+.result {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 2rem;
+
+}
+
+.values {
+    display: flex;
+    gap: 30px;
+}
+
+.actions {
+    margin-top: 40px;
+}

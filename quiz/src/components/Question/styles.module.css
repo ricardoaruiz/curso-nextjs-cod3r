@@ -1,0 +1,15 @@
+.question-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.question-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.question-timer {
+    margin-bottom: 40px;
+  }

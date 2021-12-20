@@ -1,0 +1,88 @@
+.door-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: var(--door-width);
+    height: var(--door-height);
+}
+
+.door-area + .door-area {
+    margin-left: 10px;
+}
+
+.door-frame {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+
+    border-left: 5px solid var(--door-frame-color);
+    border-top: 5px solid var(--door-frame-color);
+    border-right: 5px solid var(--door-frame-color);
+    width: 90%;
+}
+
+.door {
+    position: relative;
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+
+    background-color: var(--door-color);
+    cursor: pointer;
+}
+
+.door-number {
+    font-size: 3rem;
+}
+
+.door-handle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--door-handle-color);
+    top: calc(0.50 * var(--door-height));
+    align-self: flex-start;
+    border: 3px solid var(--door-frame-color);
+}
+
+.door-handle-selected {
+    border: 3px solid yellow;
+}
+
+.floor {
+    height: 10px;
+    width: 100%;
+    background-color: var(--door-floor-color);
+}
+
+
+/* selected door*/
+.door-frame-selected {
+    border-left: 5px solid yellow;
+    border-top: 5px solid yellow;
+    border-right: 5px solid yellow;
+}
+
+.door-frame-selected .door-number {
+    color: yellow;   
+}
+
+.door-frame-selected .door-handle {
+    border: 3px solid yellow;   
+}
+
+.gift-container {
+    position: absolute;
+    align-self: flex-end;
+    left: 40px;
+}
+
+/* closed door */
+.door-frame-closed {
+    background-color: #000;
+}

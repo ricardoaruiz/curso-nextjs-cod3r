@@ -1,0 +1,34 @@
+.gift {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: fit-content;
+}
+
+.top {
+    width: 100px;
+    height: 25px;
+    background-color: #7aa944;
+}
+
+.body {
+    width: 90px;
+    height: 60px;
+    background-color: #5c7e32;
+}
+
+.ribbon-bow-v {
+    width: 15px;
+    height: 85px;
+    background-color: red;
+    position: absolute;
+}
+
+.ribbon-bow-h {
+    width: 90px;
+    height: 15px;
+    background-color: red;
+    position: absolute;
+    top: 40px;
+}
