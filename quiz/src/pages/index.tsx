@@ -7,7 +7,7 @@ import QuestionModel from '../model/Question'
 
 import styles from '../styles/Home.module.css'
 
-const BASE_URL = 'http://localhost:3000/api/'
+const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL
 
 const Home: NextPage = () => {
   const router = useRouter()
