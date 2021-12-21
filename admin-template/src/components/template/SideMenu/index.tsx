@@ -23,7 +23,7 @@ export const SideMenu: React.VFC<SideMenuProps> = () => {
       </div>
 
       {/* Items Menu */}
-      <ul className={`flex-grow`}>
+      <ul className={`flex-grow py-0.5`}>
         <MenuItem 
           href="/" 
           label="Início" 
@@ -42,7 +42,7 @@ export const SideMenu: React.VFC<SideMenuProps> = () => {
       </ul>
 
       {/* Last Item Menu */}
-      <ul>
+      <ul className={`py-0.5`}>
         <MenuItem 
           label="Sair" 
           icon={ExitIcon} 

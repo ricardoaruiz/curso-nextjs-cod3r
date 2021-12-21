@@ -1,8 +1,11 @@
 import type { NextPage } from 'next'
 
+import { useAppContext } from '../data'
 import { Layout } from '../components'
 
 const Home: NextPage = () => {
+  const { isDarkTheme, toggleTheme } = useAppContext()
+
   return (
     <Layout 
       title='Página inicial' 
