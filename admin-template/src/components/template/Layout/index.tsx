@@ -12,6 +12,7 @@ export const Layout: React.FC<LayoutProps> = ({ title, subtitle, children }) => 
       flex
       h-screen
       w-screen
+      dark
     `}>
       <SideMenu />
 

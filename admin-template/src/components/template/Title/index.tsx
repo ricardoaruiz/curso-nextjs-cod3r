@@ -9,6 +9,7 @@ export const Title: React.FC<TitleProps> = ({ title, subtitle }) => {
           font-black
           text-3xl
           text-gray-900
+          dark:text-gray-100
         `}
       >
         {title}
@@ -18,6 +19,7 @@ export const Title: React.FC<TitleProps> = ({ title, subtitle }) => {
           font-light
           text-sm
           text-gray-600
+          dark:text-gray-200
         `}
       >
         {subtitle}

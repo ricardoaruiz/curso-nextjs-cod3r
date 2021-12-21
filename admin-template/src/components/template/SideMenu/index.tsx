@@ -8,17 +8,15 @@ import { SideMenuProps } from './types'
 export const SideMenu: React.VFC<SideMenuProps> = () => {
   return (
     <aside className={`
-      flex flex-col
+      flex flex-col w-32
+      bg-gray-200 text-gray-700
+      dark:bg-gray-900 dark:text-gray-200
     `}>
 
       {/* Logo */}
       <div className={`
-        flex
-        flex-col
-        items-center
-        justify-center
+        flex flex-col items-center justify-center
         bg-gradient-to-r from-indigo-500 to-purple-800
-        w-20
         h-20
       `}>
         <Logo />
@@ -33,7 +31,7 @@ export const SideMenu: React.VFC<SideMenuProps> = () => {
         />
         <MenuItem 
           href="/settings" 
-          label="Configurações" 
+          label="Ajustes" 
           icon={SettingsIcon} 
         />
         <MenuItem 
@@ -50,7 +48,10 @@ export const SideMenu: React.VFC<SideMenuProps> = () => {
           icon={ExitIcon} 
           onClick={() => console.log('vai deslogar...')}
           className={`
-            text-red-600
+            dark:text-red-400 
+            dark:hover:text-white
+            
+            text-red-600 
             hover:bg-red-400 
             hover:text-white
           `}
