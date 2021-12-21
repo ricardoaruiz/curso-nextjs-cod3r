@@ -6,8 +6,8 @@ import { HeaderProps } from './types'
 
 export const Header: React.FC<HeaderProps> = ({ title, subtitle }) => {
   return (
-    <header>
-      <Title 
+    <header className={` `}>
+      <Title
         title={title} 
         subtitle={subtitle} 
       />

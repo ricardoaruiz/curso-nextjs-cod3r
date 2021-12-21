@@ -8,17 +8,29 @@ import { LayoutProps } from './types'
 
 export const Layout: React.FC<LayoutProps> = ({ title, subtitle, children }) => {
   return (
-    <>
-      <Header 
-        title={title} 
-        subtitle={subtitle}
-      />
-
+    <div className={`
+      flex
+      h-screen
+      w-screen
+    `}>
       <SideMenu />
 
-      <Content>
-        {children}
-      </Content>
-    </>
+      <div className={`
+        flex 
+        flex-col 
+        w-full 
+        p-7
+        bg-gray-300 dark:bg-gray-500
+      `}>
+        <Header 
+          title={title} 
+          subtitle={subtitle}
+        />
+
+        <Content>
+          {children}
+        </Content>
+      </div>
+    </div>
   )
 }

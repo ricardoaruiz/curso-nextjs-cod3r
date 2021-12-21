@@ -6,11 +6,11 @@ const Home: NextPage = () => {
   return (
     <Layout 
       title='Página inicial' 
-      subtitle='Estamos construindo um template admin'
+      subtitle='Aqui é a página inicial da sua aplicação'
     >
-      <div className="text-3xl font-bold">
-        Conteúdo 111
-      </div>
+      <h1 className="text-3xl font-bold">
+        Início
+      </h1>
 
     </Layout>
   )
