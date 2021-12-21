@@ -48,12 +48,11 @@ export const SideMenu: React.VFC<SideMenuProps> = () => {
           icon={ExitIcon} 
           onClick={() => console.log('vai deslogar...')}
           className={`
-            dark:text-red-400 
-            dark:hover:text-white
-            
-            text-red-600 
-            hover:bg-red-400 
-            hover:text-white
+          text-red-600 
+          hover:bg-red-400 
+          hover:text-white
+          dark:hover:text-white            
+          dark:text-red-500
           `}
         />
       </ul>
