@@ -7,6 +7,7 @@ import { Error } from '../Error'
 import { GoogleButton } from '../GoogleButton'
 import { ActionButton } from '../ActionButton'
 import { ToggleFormMode } from '../ToggleFormMode'
+import { useAuthContext } from '../../../../data'
 
 const initialState: AuthData = {
   email: '',
@@ -16,6 +17,7 @@ const initialState: AuthData = {
 
 export const Form: React.VFC<FormData> = ({ onModeChange }) => {
 
+  const { user, googleLogin } = useAuthContext()
   const [mode, setMode] = React.useState<FormMode>('signin')
   const [authData, setAuthData] = React.useState<AuthData>(initialState)
   const [authError, setAuthError] = React.useState<string | undefined>(undefined)
@@ -59,9 +61,8 @@ export const Form: React.VFC<FormData> = ({ onModeChange }) => {
    * Perform Google login
    */
   const loginWithGoogle = React.useCallback(() => {
-    console.log('logando com o google...')
-    setAuthError('Erro ao logar no google')
-  }, [])
+    googleLogin()
+  }, [googleLogin])
 
   React.useEffect(() => {
     onModeChange && onModeChange(mode)

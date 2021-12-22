@@ -1,4 +1,6 @@
 import React from 'react'
+import { useRouter } from 'next/router'
+
 import { BellIcon, ExitIcon, HomeIcon, SettingsIcon } from '../../icons'
 import Logo from '../Logo'
 import { MenuItem } from './MenuItem'
@@ -6,6 +8,13 @@ import { MenuItem } from './MenuItem'
 import { SideMenuProps } from './types'
 
 export const SideMenu: React.VFC<SideMenuProps> = () => {
+
+  const router = useRouter()
+
+  const logout = React.useCallback(() => {
+    router.push('/authentication')
+  }, [router])
+
   return (
     <aside className={`
       flex flex-col w-32
@@ -46,7 +55,7 @@ export const SideMenu: React.VFC<SideMenuProps> = () => {
         <MenuItem 
           label="Sair" 
           icon={ExitIcon} 
-          onClick={() => console.log('vai deslogar...')}
+          onClick={logout}
           className={`
           text-red-600 
           hover:bg-red-400 

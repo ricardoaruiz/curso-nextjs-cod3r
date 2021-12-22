@@ -6,7 +6,6 @@ import { Form } from './components/Form'
 import { FormMode } from './components/Form/types'
 
 const Authentication: NextPage = () => {
-
     const [authMode, setAuthMode] = React.useState<FormMode>('signin')
 
     const isSignup = React.useMemo(() => {

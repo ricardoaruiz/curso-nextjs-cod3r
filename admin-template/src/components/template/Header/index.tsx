@@ -1,6 +1,7 @@
 import React from 'react'
 
-import { useAppContext } from '../../../data'
+import { useAppContext, useAuthContext } from '../../../data'
+import { Avatar } from '../Avatar'
 import { ToggleTheme } from '../ThemeToggle'
 import { Title } from '../Title'
 
@@ -8,6 +9,7 @@ import { HeaderProps } from './types'
 
 export const Header: React.FC<HeaderProps> = ({ title, subtitle }) => {
 
+  const { user } = useAuthContext()
   const { isDarkMode, toggleTheme } = useAppContext()
 
   return (
@@ -19,10 +21,19 @@ export const Header: React.FC<HeaderProps> = ({ title, subtitle }) => {
         subtitle={subtitle} 
       />      
       
-      <ToggleTheme
-        isDarkMode={isDarkMode}
-        onClick={toggleTheme}
-      />
+      <div className={`
+        flex
+        gap-3
+      `}>
+        <ToggleTheme
+          isDarkMode={isDarkMode}
+          onClick={toggleTheme}
+        />
+
+        <Avatar 
+          imageUrl={user?.imageUrl} 
+        />
+      </div>
     </header>
   )
 }
