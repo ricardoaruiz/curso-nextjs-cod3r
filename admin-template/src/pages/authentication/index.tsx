@@ -3,11 +3,20 @@ import { NextPage } from 'next'
 import Image from 'next/image'
 
 import { Form } from './components/Form'
+import { FormMode } from './components/Form/types'
 
 const Authentication: NextPage = () => {
+
+    const [authMode, setAuthMode] = React.useState<FormMode>('signin')
+
+    const isSignup = React.useMemo(() => {
+        return authMode === 'signup'
+    }, [authMode])
+
     return (
         <div className={`
             flex
+            ${isSignup ?  'flex-row-reverse' : ''}
         `}>
             {/* Image */}
             <div className={`
@@ -23,7 +32,10 @@ const Authentication: NextPage = () => {
                 />
             </div>
 
-            <Form />
+            {/* Signin / Signup Forms */}
+            <Form 
+                onModeChange={setAuthMode}
+            />
         </div>
             
     )

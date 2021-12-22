@@ -1,6 +1,6 @@
-type Mode = 'signin' | 'signup'
+import { FormMode } from "../Form/types"
 
 export type ToggleFormModeProps = {
-  mode: Mode
-  onClick: (mode: Mode) => void
+  mode: FormMode
+  onClick: (mode: FormMode) => void
 }

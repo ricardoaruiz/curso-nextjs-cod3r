@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { AuthData } from './types'
+import { AuthData, FormData } from './types'
 import { AuthInput } from '../../../../components/auth/AuthInput/inedex'
 import { Title } from '../Title'
 import { GoogleButton } from '../GoogleButton'
@@ -13,7 +13,7 @@ const initialState: AuthData = {
   passwordConfirmation: ''
 }
 
-export const Form: React.VFC = () => {
+export const Form: React.VFC<FormData> = ({ onModeChange }) => {
 
   const [mode, setMode] = React.useState<'signin' | 'signup'>('signin')
   const [authData, setAuthData] = React.useState<AuthData>(initialState)
@@ -41,6 +41,17 @@ export const Form: React.VFC = () => {
     }
     console.log('vai cadastrar com...', JSON.stringify(authData, null, 2))
   }, [authData, isSignin])
+
+  /**
+   * Perform Google login
+   */
+  const loginWithGoogle = React.useCallback(() => {
+    console.log('logando com o google...')    
+  }, [])
+
+  React.useEffect(() => {
+    onModeChange && onModeChange(mode)
+  }, [mode, onModeChange])
 
   return (
     <div className={`
@@ -88,13 +99,12 @@ export const Form: React.VFC = () => {
         />
 
         <hr className={`
-            my-6
+            w-full my-6
             border-x-gray-300
-            w-full
         `} />
 
         <GoogleButton 
-          onClick={() => console.log('google button clicked')}
+          onClick={loginWithGoogle}
         />
         
         <ToggleFormMode 
