@@ -1,5 +1,9 @@
 // Para mais ícones acessar https://heroicons.com/
 
+type IconProps = {
+  className?: string
+}
+
 export const HomeIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -36,11 +40,20 @@ export const MoonIcon = (
   </svg>
 )
 
-export const GoogleIcon: React.VFC<{className?: string}> = ({ className }) => {
-  const classes = className || 'h-6 w-6'
+export const GoogleIcon: React.VFC<IconProps> = ({ className }) => {
+  const classes = `w-10 ${className}`
   return (
     <svg xmlns="http://www.w3.org/2000/svg" className={classes} fill="white" viewBox="0 0 24 24" stroke="currentColor">
       <path d="M20.283 10.356h-8.327v3.451h4.792c-.446 2.193-2.313 3.453-4.792 3.453a5.27 5.27 0 0 1-5.279-5.28 5.27 5.27 0 0 1 5.279-5.279c1.259 0 2.397.447 3.29 1.178l2.6-2.599c-1.584-1.381-3.615-2.233-5.89-2.233a8.908 8.908 0 0 0-8.934 8.934 8.907 8.907 0 0 0 8.934 8.934c4.467 0 8.529-3.249 8.529-8.934 0-.528-.081-1.097-.202-1.625z"></path>
+    </svg>
+  )
+}
+
+export const AttentionIcon: React.VFC<IconProps> = ({ className }) => {
+  const classes = `w-10 ${className}`
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" className={classes} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
     </svg>
   )
 }

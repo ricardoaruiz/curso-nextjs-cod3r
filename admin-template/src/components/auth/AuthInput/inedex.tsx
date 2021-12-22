@@ -30,6 +30,8 @@ export const AuthInput: React.VFC<AuthInputProps> = ({ label, className, isShow 
                     bg-gray-50
                     focus:bg-white
                     focus:border-blue-400
+                    hover:border-blue-200
+                    hover:cursor-pointer
                     px-1 py-2
                     w-full
                     ${className}

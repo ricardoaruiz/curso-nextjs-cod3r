@@ -1,8 +1,9 @@
 import React from 'react'
 
-import { AuthData, FormData } from './types'
+import { AuthData, FormData, FormMode } from './types'
 import { AuthInput } from '../../../../components/auth/AuthInput/inedex'
 import { Title } from '../Title'
+import { Error } from '../Error'
 import { GoogleButton } from '../GoogleButton'
 import { ActionButton } from '../ActionButton'
 import { ToggleFormMode } from '../ToggleFormMode'
@@ -15,8 +16,9 @@ const initialState: AuthData = {
 
 export const Form: React.VFC<FormData> = ({ onModeChange }) => {
 
-  const [mode, setMode] = React.useState<'signin' | 'signup'>('signin')
+  const [mode, setMode] = React.useState<FormMode>('signin')
   const [authData, setAuthData] = React.useState<AuthData>(initialState)
+  const [authError, setAuthError] = React.useState<string | undefined>(undefined)
 
   /**
    * Form mode
@@ -24,6 +26,15 @@ export const Form: React.VFC<FormData> = ({ onModeChange }) => {
   const isSignin = React.useMemo(() => {
     return mode === 'signin'
   }, [mode])
+
+  /**
+   * Toggle form mode sigin/signup
+   */
+  const toggleMode = React.useCallback((mode: FormMode) => {
+    setMode(mode)
+    setAuthData(initialState)
+    setAuthError(undefined)
+  }, [])
 
   /**
    * Handle input changes
@@ -37,8 +48,10 @@ export const Form: React.VFC<FormData> = ({ onModeChange }) => {
    */  
   const submitData = React.useCallback(() => {
     if (isSignin) {
+        setAuthError('Ocorreu um erro no login')
         return console.log('vai logar com...', JSON.stringify(authData, null, 2))
     }
+    setAuthError('Ocorreu um erro no cadastro')
     console.log('vai cadastrar com...', JSON.stringify(authData, null, 2))
   }, [authData, isSignin])
 
@@ -46,7 +59,8 @@ export const Form: React.VFC<FormData> = ({ onModeChange }) => {
    * Perform Google login
    */
   const loginWithGoogle = React.useCallback(() => {
-    console.log('logando com o google...')    
+    console.log('logando com o google...')
+    setAuthError('Erro ao logar no google')
   }, [])
 
   React.useEffect(() => {
@@ -65,6 +79,11 @@ export const Form: React.VFC<FormData> = ({ onModeChange }) => {
     `}>
         <Title 
           isSignin={isSignin}
+        />
+
+        <Error
+          message={authError}
+          onHide={() => setAuthError(undefined)}
         />
 
         <AuthInput 
@@ -109,7 +128,7 @@ export const Form: React.VFC<FormData> = ({ onModeChange }) => {
         
         <ToggleFormMode 
           mode={mode}
-          onClick={setMode}
+          onClick={toggleMode}
         />
     </div>
   )
