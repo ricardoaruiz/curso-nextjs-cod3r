@@ -14,7 +14,7 @@ export const GoogleButton: React.VFC<GoogleButtonProps> = (props) => {
         active:text-red-600
         focus:border-red-800
         text-white
-        w-full px-4 py-3
+        w-full px-4 py-1
         outline-none
         rounded-full            
         border
@@ -29,7 +29,7 @@ export const GoogleButton: React.VFC<GoogleButtonProps> = (props) => {
       `}>Entrar com o Google</span>
 
       <GoogleIcon 
-        className={`w-5`}
+        className={`w-4`}
       />
     </button>
   )

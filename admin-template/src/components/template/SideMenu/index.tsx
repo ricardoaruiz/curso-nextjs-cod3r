@@ -4,16 +4,19 @@ import { useRouter } from 'next/router'
 import { BellIcon, ExitIcon, HomeIcon, SettingsIcon } from '../../icons'
 import Logo from '../Logo'
 import { MenuItem } from './MenuItem'
+import { useAuthContext } from '../../../data'
 
 import { SideMenuProps } from './types'
 
 export const SideMenu: React.VFC<SideMenuProps> = () => {
 
+  const { logout } = useAuthContext()
   const router = useRouter()
 
-  const logout = React.useCallback(() => {
+  const logoff = React.useCallback(() => {
+    logout()
     router.push('/authentication')
-  }, [router])
+  }, [logout, router])
 
   return (
     <aside className={`
@@ -55,7 +58,7 @@ export const SideMenu: React.VFC<SideMenuProps> = () => {
         <MenuItem 
           label="Sair" 
           icon={ExitIcon} 
-          onClick={logout}
+          onClick={logoff}
           className={`
           text-red-600 
           hover:bg-red-400 
