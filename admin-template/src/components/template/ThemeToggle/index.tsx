@@ -13,6 +13,7 @@ export const ToggleTheme: React.VFC<ThemeTogglePrpos> = ({ isDarkMode, onClick }
           px-2.5 py-1
           w-28 lg:w-36
           rounded-full
+          shadow-lg
 
           bg-gray-700
           text-white
@@ -20,7 +21,7 @@ export const ToggleTheme: React.VFC<ThemeTogglePrpos> = ({ isDarkMode, onClick }
           dark:flex-row-reverse
 
           ${!isDarkMode 
-            ? 'bg-gradient-to-r from-gray-400 to-gray-800'
+            ? 'bg-gradient-to-l from-gray-400 to-gray-800'
             : 'bg-gradient-to-r from-yellow-200 to-yellow-700' 
           }
         `}

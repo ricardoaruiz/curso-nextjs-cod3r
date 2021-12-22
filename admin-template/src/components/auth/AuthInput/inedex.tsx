@@ -7,11 +7,14 @@ export const AuthInput: React.VFC<AuthInputProps> = ({ label, className, isShow 
         <div className={`
             flex flex-col
             mb-4
+            w-full
         `}>
             <label 
                 htmlFor={props.id}
                 className={`
                     mb-2
+                    text-sm
+                    font-semibold
                 `}
             >
                 {label}
@@ -21,10 +24,14 @@ export const AuthInput: React.VFC<AuthInputProps> = ({ label, className, isShow 
                 type="text" 
                 className={`
                     border-2
-                    border-gray-200
+                    rounded-md
                     outline-none
-                    focus:border-gray-400
+                    border-gray-200
+                    bg-gray-50
+                    focus:bg-white
+                    focus:border-blue-400
                     px-1 py-2
+                    w-full
                     ${className}
                 `}
                 { ...props }

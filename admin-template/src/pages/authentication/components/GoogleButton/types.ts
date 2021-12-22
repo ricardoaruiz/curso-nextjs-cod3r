@@ -1,0 +1,1 @@
+export type GoogleButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>
