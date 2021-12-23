@@ -78,7 +78,15 @@ export const AuthContextProvider: React.FC = ({ children }) => {
       
       const userCredentials = await firebase.auth().signInWithEmailAndPassword(email, password)
       
-      await setupSession(userCredentials.user)
+      const isLogged = await setupSession(userCredentials.user)
+
+      if (isLogged) {
+        router.push('/')
+        return
+      }
+
+      throw new Error("Can't authenticate user")
+
 
     } catch(error: any) {
       
@@ -93,7 +101,7 @@ export const AuthContextProvider: React.FC = ({ children }) => {
     } finally {
       setIsLoading(false)
     }
-  }, [setupSession])
+  }, [router, setupSession])
 
   /**
    * Perform google login on firebase
