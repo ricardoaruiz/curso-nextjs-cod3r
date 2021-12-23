@@ -7,6 +7,7 @@ import firebase from '../../firebase/config'
 
 type AuthContextData = {
   user: User | null
+  isLoading: boolean
   googleLogin: () => Promise<void>
   logout: () => Promise<void>
 }
@@ -96,11 +97,14 @@ export const AuthContextProvider: React.FC = ({ children }) => {
       const onIdTokenChangedCancelFunction = firebase.auth().onIdTokenChanged(setupSession)
   
       return () => onIdTokenChangedCancelFunction()
+    } else {
+      setIsLoading(false)
     }
   }, [setupSession])
 
   const authContextData: AuthContextData = {
     user,
+    isLoading,
     googleLogin,
     logout
   }
