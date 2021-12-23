@@ -14,7 +14,7 @@ export const ToggleTheme: React.VFC<ThemeTogglePrpos> = ({ isDarkMode, onClick }
           w-28 lg:w-36
           rounded-full
           shadow-lg
-
+          
           bg-gray-700
           text-white
 
@@ -36,7 +36,7 @@ export const ToggleTheme: React.VFC<ThemeTogglePrpos> = ({ isDarkMode, onClick }
 
         <span className={`
           flex justify-center items-center
-          w-10 h-10
+          w-8 h-8
           p-1
           rounded-full
           dark:bg-yellow-500

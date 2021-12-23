@@ -23,6 +23,7 @@ export const Header: React.FC<HeaderProps> = ({ title, subtitle }) => {
       
       <div className={`
         flex
+        items-center
         gap-3
       `}>
         <ToggleTheme
@@ -31,6 +32,7 @@ export const Header: React.FC<HeaderProps> = ({ title, subtitle }) => {
         />
 
         <Avatar 
+          name={user?.name || user?.email}
           imageUrl={user?.imageUrl} 
         />
       </div>

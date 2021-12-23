@@ -46,7 +46,12 @@ export const AuthContextProvider: React.FC = ({ children }) => {
         authData.password
       )
 
-      await setupSession(userCredentials.user)
+      const isLogged = await setupSession(userCredentials.user)
+
+      if (isLogged) {
+        router.push('/')
+        return
+      }
 
     } catch(error: any) {
       const errorCode = error.code;
@@ -66,7 +71,7 @@ export const AuthContextProvider: React.FC = ({ children }) => {
     } finally {
       setIsLoading(false)
     }
-  }, [setupSession])
+  }, [router, setupSession])
 
   /**
    * Perform login with email and password on firebase
@@ -86,7 +91,6 @@ export const AuthContextProvider: React.FC = ({ children }) => {
       }
 
       throw new Error("Can't authenticate user")
-
 
     } catch(error: any) {
       
